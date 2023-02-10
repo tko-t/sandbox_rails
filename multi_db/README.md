@@ -12,10 +12,14 @@ $ docker-compose exec app rails db:setup
 
 ```
 $ docker-compose exec app rails db --db main
+
+MySQL > SELECT * FROM dogs;
 ```
 
 ### db_subに接続
 
 ```
 $ docker-compose exec app rails db --db sub
+
+MySQL > SELECT * FROM cats;
 ```
