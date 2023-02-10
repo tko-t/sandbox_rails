@@ -1,0 +1,2 @@
+class Tiger < SubRecord
+end
