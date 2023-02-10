@@ -7,6 +7,13 @@ class Member < ApplicationRecord
     errors.add('error') if name&.include?('hoge')
   end
 
+  # NOTE: !!!DANGER!!!
+  #after_commit :recommit
+
+  #def recommit
+  #  update(name: self.name + "_recommit")
+  #end
+
   module CallbackCheck
     class << self
       def callback_kinds
@@ -34,4 +41,5 @@ class Member < ApplicationRecord
   end
 
   include CallbackCheck
+
 end
