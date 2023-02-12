@@ -3,3 +3,5 @@
 */log/*
 !*/tmp/.keep
 !*/log/.keep
+
+*/config/master.key
