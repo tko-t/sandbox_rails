@@ -3,9 +3,10 @@ class DogsController < ApplicationController
 
   # GET /dogs
   def index
-    @dogs = Dog.all
+    timestamp = session[:last_write]
+    delay = timestamp ? (Time.zone.now - (Time.at(timestamp / 1000, (timestamp % 1000) * 1000))).round(3) : 0
 
-    render json: @dogs
+    render json: { role: ActiveRecord::Base.current_role, count: Dog.count, delay: }
   end
 
   # GET /dogs/1
@@ -15,13 +16,8 @@ class DogsController < ApplicationController
 
   # POST /dogs
   def create
-    @dog = Dog.new(dog_params)
-
-    if @dog.save
-      render json: @dog, status: :created, location: @dog
-    else
-      render json: @dog.errors, status: :unprocessable_entity
-    end
+    @dogs =  Dog.create(dog_params)
+    render json: { role: ActiveRecord::Base.current_role }
   end
 
   # PATCH/PUT /dogs/1
