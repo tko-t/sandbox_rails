@@ -1,5 +1,12 @@
 # sandbox_rails
 
 * multi_db/
-複数DB仕様ののサンプル
+マルチDB仕様のサンプル
+
+* read_replica/
+マルチDBと若干かぶる。こっちは書込と読出を分けるサンプル。
+middlewareのサンプルも少々
+
+* callback_priority/
+activemodelのコールバックの実行順序
 
