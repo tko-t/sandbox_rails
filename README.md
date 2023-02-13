@@ -10,3 +10,5 @@ middlewareのサンプルも少々
 * callback_priority/
 activemodelのコールバックの実行順序
 
+* try_ridgepole/
+ridgepoleを試す

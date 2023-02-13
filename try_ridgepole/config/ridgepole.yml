@@ -1,0 +1,15 @@
+development:
+  database: try_ridgepole_development
+  adapter: mysql2
+  encoding: utf8mb4
+  username: root
+  password:
+  host: try_ridgepole_db
+
+test:
+  database: try_ridgepole_test
+  adapter: mysql2
+  encoding: utf8mb4
+  username: root
+  password:
+  host: try_ridgepole_db

@@ -19,3 +19,15 @@ migrateをdry_run
 
 ### 公式  
 https://github.com/ridgepole/ridgepole
+
+### 小ネタ
+
+#### ALTER TABLEをテーブル単位のDDLにまとめる
+`--bulk-change` オプションを使う。
+しかしindexの変更は分けたほうが良いという説もある
+
+#### --bulk-changeを使いつつindexだけは個別にALTERする
+indexだけは `execute` で記述する。
+`execute("ALTER TABLE table_name ADD INDEX index_name (column_name)")`
+他にやり方あるのかな？
+
