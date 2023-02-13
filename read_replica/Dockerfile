@@ -1,16 +1,4 @@
-FROM ruby:3.1-slim as jemalloc
-RUN apt-get update -qq && apt-get install -y --no-install-recommends \
-    build-essential \
-    wget \
-    && wget -O - https://github.com/jemalloc/jemalloc/releases/download/5.2.1/jemalloc-5.2.1.tar.bz2 | tar -xj \
-    && cd jemalloc-5.2.1 \
-    && ./configure \
-    && make \
-    && make install
-
 FROM ruby:3.1-slim
-
-COPY --from=jemalloc /usr/local/lib/libjemalloc.so.2 /usr/local/lib/
 
 ENV LANG=C.UTF-8
 ENV TZ=Asia/Tokyo

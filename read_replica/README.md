@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+疑似リードレプリカ環境をローカルに作ってみました。
+運用環境は実際のhostを指定すればよろしいかと。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ docker-compose build
+$ docker-compose up -d
+$ docker-compose exec app rails db:reset
+$ curl GET -c cookie.txt -b cookie.txt http://localhost:3000/dogs
+$ curl POST -c cookie.txt -b cookie.txt http://localhost:3000/dogs -d "dog[name]=ダルメシアン"
+```
